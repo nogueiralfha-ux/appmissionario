@@ -1,84 +1,280 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missão Peru - Tacna</title>
+    <title>O MISSIONÁRIO - Plataforma SaaS</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .section { display: none; }
-        .active { display: block; }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        :root {
+            --navy-deep: #050C1A;
+            --gold-primary: #D4AF37;
+            --gold-light: #F9E29B;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; transition: all 0.3s ease; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .brand-font { font-family: 'Cinzel', serif; }
+        
+        .gold-grad { background: linear-gradient(135deg, #B58D3D 0%, #D4AF37 50%, #F9E29B 100%); }
+        .navy-grad { background: linear-gradient(180deg, #0A192F 0%, #050C1A 100%); }
+        
+        .card-premium { background: white; border-radius: 24px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); border: 1px solid rgba(212, 175, 55, 0.1); }
+        .btn-gold { background: linear-gradient(135deg, #D4AF37, #B58D3D); color: white; font-weight: 700; transition: transform 0.2s; }
+        .btn-gold:active { transform: scale(0.95); }
+
+        .view-hidden { display: none; }
+        .view-active { display: block; animation: slideUp 0.4s ease-out; }
+        
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Estilo refinado para a imagem do botão Heróis */
+        .img-hero-btn { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            padding: 4px; /* Evita que a logo toque nas bordas do círculo */
+        }
+
+        .input-mission { background: #f1f5f9; border: 2px solid transparent; border-radius: 12px; padding: 12px; width: 100%; font-size: 14px; transition: all 0.3s; }
+        .input-mission:focus { border-color: #D4AF37; outline: none; background: white; }
+
+        .tab-btn { padding: 10px; border-radius: 12px; font-weight: bold; font-size: 12px; flex: 1; transition: all 0.3s; }
+        .tab-active { background: #0A192F; color: white; }
+        .tab-inactive { background: #f1f5f9; color: #64748b; }
     </style>
 </head>
-<body class="bg-[#0A2540] text-white min-h-screen pb-24">
+<body class="pb-24">
 
-    <div class="bg-gradient-to-b from-[#15803D] to-[#0A2540] py-10 text-center shadow-lg">
-        <img src="logo-missao-peru.png" alt="Logo" class="mx-auto w-32 h-32 rounded-full border-4 border-[#E8B923] mb-4">
-        <h1 class="text-2xl font-bold text-[#E8B923]">Missão Peru - Tacna</h1>
-        <p class="text-sm text-gray-300">APOIO MENSAL 12 MESES</p>
-    </div>
-
-    <div id="home" class="section active p-6 text-center">
-        <h2 class="text-[#E8B923] text-xl font-bold mb-4">Palavra do Dia</h2>
-        <div class="bg-white/10 p-8 rounded-2xl border-l-4 border-[#15803D] mb-6">
-            <p class="italic text-lg">"Ide por todo o mundo e pregai o evangelho..."</p>
-        </div><div id="oracao" class="section hidden p-6">
-    <h2 class="text-[#E8B923] text-2xl font-bold mb-6 text-center underline">Clamor por Tacna</h2>
-    <div class="space-y-4">
-        <div class="bg-white/5 p-4 rounded-xl border-l-4 border-[#15803D]">
-            <p class="font-bold text-[#E8B923]">1. Portas Abertas</p>
-            <p class="text-sm">Para que o povo Quéchua receba a mensagem com o coração aberto.</p>
+    <!-- Cabeçalho Principal -->
+    <header class="navy-grad text-white pt-8 pb-12 px-6 rounded-b-[3rem] shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-4 opacity-10">
+            <i class="fas fa-globe-americas text-9xl text-gold-primary"></i>
         </div>
-        <div class="bg-white/5 p-4 rounded-xl border-l-4 border-[#15803D]">
-            <p class="font-bold text-[#E8B923]">2. Provisão</p>
-            <p class="text-sm">Pelo sustento da base e dos novos missionários que chegarão.</p>
-        </div>
-        <div class="bg-white/5 p-4 rounded-xl border-l-4 border-[#15803D]">
-            <p class="font-bold text-[#E8B923]">3. Saúde e Proteção</p>
-            <p class="text-sm">Pela família missionária contra toda enfermidade e oposição.</p>
-        </div>
-    </div>
-    <button onclick="alert('Obrigado por interceder! Sua oração move os céus.')" class="mt-8 w-full border-2 border-[#E8B923] py-3 rounded-lg font-bold text-[#E8B923]">
-        EU OREI POR ESTES MOTIVOS
-    </button>
-</div>
-
-<div id="palavra" class="section hidden p-6 text-center">
-    <h2 class="text-[#E8B923] text-2xl font-bold mb-6">Trilha Missionária</h2>
-    <div class="bg-[#0A2540] border border-white/10 p-6 rounded-3xl shadow-2xl">
-        <p class="text-xl italic mb-4">"Pede-me, e eu te darei as nações por herança, e os fins da terra por tua possessão."</p>
-        <p class="font-bold text-[#15803D]">Salmos 2:8</p>
-        <hr class="my-6 border-white/10">
-        <p class="text-sm text-gray-400">Leitura sugerida para hoje:</p>
-        <p class="text-lg font-bold">Atos Capítulo 13</p>
-    </div>
-</div>
-        <a href="https://wa.me/5500000000000" class="block w-full bg-[#15803D] py-4 rounded-xl font-bold uppercase tracking-widest">
-            Compartilhar no WhatsApp
-        </a>
-    </div>
-
-    <div id="doar" class="section p-6 text-center">
-        <h2 class="text-[#E8B923] text-xl font-bold mb-4">Apoio Financeiro</h2>
-        <div class="bg-white/5 p-6 rounded-2xl">
-            <p class="mb-4">Sua semente ajuda a manter a base em Tacna.</p>
-            <p class="text-2xl font-mono bg-black/30 p-3 rounded">05475258856</p>
-            <button onclick="alert('Chave Copiada!')" class="mt-4 text-[#E8B923] font-bold underline">COPIAR CHAVE PIX</button>
-        </div>
-    </div>
-
-    <div id="oracao" class="section p-6">
-        <h2 class="text-[#E8B923] text-xl font-bold mb-4 text-center">Motivos de Oração</h2>
-        <ul class="space-y-3">
-            <li class="bg-white/5 p-3 rounded">🙏 Pelas famílias Quéchua</li>
-            <li class="bg-white/5 p-3 rounded">🙏 Pela saúde dos missionários</li>
-            <li class="bg-white/5 p-3 rounded">🙏 Pela provisão da nova base</li>
-        </ul>
-    </div>
-
-    <div id="quiz" class="section p-6 text-center">
-
-        <h2 class="text-[#E8B923] text-xl font-bold mb-4">Desafio Missionário</h2>
-
-
         
+        <div class="flex justify-between items-center relative z-10">
+            <div class="flex items-center gap-3">
+                <img src="logo-aplivativo-png.jpg" alt="Logo O Missionário" class="w-12 h-12 rounded-xl border border-gold-primary/30 shadow-lg">
+                <div>
+                    <h1 class="brand-font text-xl tracking-widest text-gold-light uppercase leading-none">O MISSIONÁRIO</h1>
+                    <p class="text-[9px] opacity-60 italic mt-1">A Palavra de Deus onde você estiver</p>
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <div class="w-10 h-10 rounded-full border border-gold-primary p-0.5">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mission" class="rounded-full bg-slate-800" alt="Avatar Utilizador">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 gap-4 relative z-10">
+            <div class="bg-white/5 backdrop-blur-lg p-3 rounded-2xl border border-white/10">
+                <p class="text-[9px] uppercase tracking-tighter opacity-50">Pontos de Fé</p>
+                <p id="header-xp" class="text-lg font-bold text-yellow-500">1.250 XP</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur-lg p-3 rounded-2xl border border-white/10">
+                <p class="text-[9px] uppercase tracking-tighter opacity-50">Ranking Tacna</p>
+                <p class="text-lg font-bold">#08</p>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="px-5 -mt-6 relative z-20">
+        
+        <!-- VISTA: HOME -->
+        <section id="view-home" class="view-active space-y-6">
+            <div class="card-premium p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Devocional do Dia</span>
+                    <i class="fas fa-bookmark text-gold-primary"></i>
+                </div>
+                <h3 id="home-dev-title" class="serif text-2xl text-slate-800 leading-tight">Carregando...</h3>
+                <p id="home-dev-intro" class="text-slate-500 text-sm mt-2 line-clamp-2"></p>
+                <button onclick="openDevotional(0)" class="mt-6 w-full btn-gold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-book-open"></i> LER AGORA
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="changeView('quiz')" class="card-premium p-5 flex flex-col items-center group overflow-hidden border-2 border-transparent hover:border-red-100 transition-all">
+                    <div class="w-14 h-14 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-red-500 group-hover:text-white transition-all">
+                        <i class="fas fa-bolt text-xl"></i>
+                    </div>
+                    <span class="text-[10px] font-black text-slate-700 uppercase tracking-tighter">Quiz Bíblico</span>
+                </button>
+
+                <!-- Botão Heróis da Fé Corrigido -->
+                <button onclick="changeView('kids')" class="card-premium p-5 flex flex-col items-center group overflow-hidden border-2 border-transparent hover:border-yellow-200 transition-all">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-3 relative overflow-hidden shadow-sm border border-slate-50">
+                        <img src="logo-Herois.png.jpg" alt="Logo Heróis da Fé" class="img-hero-btn">
+                    </div>
+                    <span class="text-[10px] font-black text-slate-700 uppercase tracking-tighter">Heróis da Fé</span>
+                </button>
+
+                <button onclick="changeView('store')" class="card-premium p-5 flex flex-col items-center group overflow-hidden border-2 border-transparent hover:border-purple-100 transition-all">
+                    <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                        <i class="fas fa-store text-xl"></i>
+                    </div>
+                    <span class="text-[10px] font-black text-slate-700 uppercase tracking-tighter">E-books Store</span>
+                </button>
+
+                <button onclick="changeView('join')" class="card-premium p-5 flex flex-col items-center group overflow-hidden border-2 border-transparent hover:border-emerald-100 transition-all">
+                    <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <i class="fas fa-hands-helping text-xl"></i>
+                    </div>
+                    <span class="text-[10px] font-black text-slate-700 uppercase tracking-tighter">Ser Missionário</span>
+                </button>
+            </div>
+
+            <div class="bg-blue-900 rounded-3xl p-6 text-white text-center relative overflow-hidden mb-8">
+                <h3 class="text-lg font-bold">Ide por todo o mundo</h3>
+                <p class="text-xs opacity-70 mt-2">Participe diretamente da missão em Tacna - Peru.</p>
+                <button onclick="changeView('join')" class="mt-4 bg-white text-blue-900 font-bold px-8 py-3 rounded-full text-sm">FAZER PARTE</button>
+            </div>
+        </section>
+
+        <!-- VISTA: KIDS (Módulo Infantil) -->
+        <section id="view-kids" class="view-hidden space-y-6">
+            <div class="flex items-center gap-3 mb-4">
+                <button onclick="changeView('home')" class="text-slate-400"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="brand-font text-lg text-slate-800 uppercase tracking-widest">Módulo Infantil</h2>
+            </div>
+            
+            <!-- Banner Kids Melhorado -->
+            <div class="bg-gradient-to-br from-red-600 via-red-500 to-orange-500 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden mb-6 flex items-center justify-between min-h-[160px]">
+                <div class="relative z-10 w-full flex flex-col items-center sm:items-start">
+                    <img src="logo-Herois.png.jpg" alt="Logo Heróis da Fé" class="w-40 md:w-48 mb-4 drop-shadow-2xl">
+                    <p class="text-[10px] font-black opacity-100 uppercase tracking-[0.2em] bg-white/20 px-3 py-1 rounded-full">Pequenos Missionários</p>
+                </div>
+                <div class="absolute -right-8 -bottom-8 opacity-10">
+                    <i class="fas fa-shield-heart text-[14rem]"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4">
+                <button class="card-premium p-6 flex items-center justify-between border-l-8 border-yellow-500 hover:scale-[1.02] transition-transform">
+                    <div class="text-left">
+                        <h4 class="font-black text-slate-800 uppercase tracking-tighter">Jogo da Memória</h4>
+                        <p class="text-[10px] text-slate-400">Encontra os heróis da Bíblia</p>
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center shadow-inner">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </button>
+
+                <button class="card-premium p-6 flex items-center justify-between border-l-8 border-blue-500 hover:scale-[1.02] transition-transform">
+                    <div class="text-left">
+                        <h4 class="font-black text-slate-800 uppercase tracking-tighter">Histórias Ilustradas</h4>
+                        <p class="text-[10px] text-slate-400">Assiste e aprende sobre a Bíblia</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shadow-inner">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- OUTRAS VISTAS (QUIZ, LOJA, MISSÃO) -->
+        <section id="view-join" class="view-hidden space-y-6">
+            <div class="flex items-center gap-3 mb-4">
+                <button onclick="changeView('home')" class="text-slate-400"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="brand-font text-lg text-slate-800 uppercase tracking-widest">Selo de Apoiador</h2>
+            </div>
+            <div class="card-premium p-6 text-center">
+                <p class="text-xs text-slate-500 mb-6">Faz parte desta grande colheita no Peru.</p>
+                <div class="flex gap-2 mb-6 p-1 bg-slate-100 rounded-2xl">
+                    <button onclick="setJoinType('mensal')" id="tab-mensal" class="tab-btn tab-active">Mensal</button>
+                    <button onclick="setJoinType('unica')" id="tab-unica" class="tab-btn tab-inactive">Oferta</button>
+                </div>
+                <div id="content-mensal" class="space-y-4">
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="selectValue(this)" class="p-4 border-2 border-slate-100 rounded-xl font-black text-sm">R$ 30</button>
+                        <button onclick="selectValue(this)" class="p-4 border-2 border-slate-100 rounded-xl font-black text-sm">R$ 50</button>
+                        <button onclick="selectValue(this)" class="p-4 border-2 border-slate-100 rounded-xl font-black text-sm">R$ 100</button>
+                    </div>
+                    <a href="gratidao-mensal.html" class="block w-full btn-gold py-4 rounded-2xl text-center uppercase text-xs mt-6">Confirmar</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-quiz" class="view-hidden space-y-6">
+            <div class="flex items-center gap-3 mb-4">
+                <button onclick="changeView('home')" class="text-slate-400"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="brand-font text-lg text-slate-800">Quiz</h2>
+            </div>
+            <div id="quiz-game-container" class="card-premium p-6">
+                <h3 id="quiz-question" class="text-xl font-bold text-slate-800 mb-8 leading-snug">...</h3>
+                <div id="quiz-options" class="grid gap-3 mb-8"></div>
+            </div>
+        </section>
+
+        <section id="view-store" class="view-hidden space-y-6">
+            <div class="flex items-center gap-3 mb-4">
+                <button onclick="changeView('home')" class="text-slate-400"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="brand-font text-lg text-slate-800">Loja</h2>
+            </div>
+            <div class="grid gap-4">
+                <div class="card-premium p-5 flex gap-4 items-center border border-slate-100">
+                    <div class="w-16 h-20 bg-slate-50 rounded-lg flex items-center justify-center text-gold-primary font-black border border-slate-100 shadow-sm">PDF</div>
+                    <div class="flex-1 text-left">
+                        <h4 class="font-bold text-slate-800">Evangelismo Urbano</h4>
+                        <button class="bg-navy-deep text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase mt-3">Comprar R$ 29,90</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Barra de Navegação Inferior -->
+    <nav class="fixed bottom-0 w-full bg-white border-t border-slate-100 p-4 flex justify-around items-center z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.03)]">
+        <button id="nav-home" onclick="changeView('home')" class="nav-btn text-gold-primary flex flex-col items-center gap-1">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-[9px] font-black uppercase tracking-tighter">Início</span>
+        </button>
+        <button id="nav-store" onclick="changeView('store')" class="nav-btn text-slate-300 flex flex-col items-center gap-1">
+            <i class="fas fa-book text-xl"></i>
+            <span class="text-[9px] font-black uppercase tracking-tighter">Loja</span>
+        </button>
+        <button id="nav-join" onclick="changeView('join')" class="nav-btn text-slate-300 flex flex-col items-center gap-1">
+            <i class="fas fa-hands-helping text-xl"></i>
+            <span class="text-[9px] font-black uppercase tracking-tighter">Missão</span>
+        </button>
+        <button class="nav-btn text-slate-300 flex flex-col items-center gap-1">
+            <i class="fas fa-user-circle text-xl"></i>
+            <span class="text-[9px] font-black uppercase tracking-tighter">Perfil</span>
+        </button>
+    </nav>
+
+    <script>
+        // Dados e Lógica de Navegação
+        const db_devocionais = [
+            { id: 1, tema: "A Promessa de um Novo Começo", introducao: "Feliz Ano Novo! Hoje, ao abrirmos a primeira página de um novo calendário, somos presenteados com a sensação de um novo começo.", versiculo: "Eis que faço novas todas as coisas." }
+        ];
+
+        function changeView(viewId) {
+            const views = ['view-home', 'view-store', 'view-kids', 'view-quiz', 'view-join'];
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (el) el.classList.add('view-hidden'), el.classList.remove('view-active');
+            });
+            const active = document.getElementById('view-' + viewId);
+            if (active) {
+                active.classList.remove('view-hidden');
+                active.classList.add('view-active');
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function initHome() {
+            document.getElementById('home-dev-title').innerText = db_devocionais[0].tema;
+            document.getElementById('home-dev-intro').innerText = db_devocionais[0].introducao;
+        }
+
+        window.onload = initHome;
+    </script>
+</body>
+</html>
