@@ -1,3 +1,15 @@
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#050C1A">
-<link rel="apple-touch-icon" href="logo-aplivativo-png.png">
+{
+  "name": "O Missionário",
+  "short_name": "Missionário",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#050C1A",
+  "theme_color": "#050C1A",
+  "icons": [
+    {
+      "src": "logo-aplivativo-png.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
